@@ -1,34 +1,91 @@
 <!DOCTYPE html>
 <html lang="lv">
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta charset="utf8">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="../../styles.css">
-    <script type="text/javascript" >
-      var objekts = {};
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta charset="utf8" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <script type="text/javascript">
+      let objekts = {
+        firstName: "John",
+        lastName: "Doe",
+        age: 50,
+        eyeColor: "blue"
+      };
+      console.log("[Object]");
+      druka();
+      function addKey(key, value) {
+        objekts[key] = value;
+      }
+      function druka() {
+        for (let property in objekts) {
+          console.log(property + ": " + objekts[property] + "; ");
+        }
+      }
+      addKey("newKey", "newValue");
+      console.log("");
+      console.log("new Value");
+      druka();
+      console.log("");
+      console.log("[delete age]");
+      delete objekts.age;
+      druka();
     </script>
   </head>
   <body class="container">
     <div id="task">
       <h1>Manipulācijas ar objektiem</h1>
       <ol>
-        <li>Izveidot funkciju, kura pievienos jaunu atslēgu ar vērtību objektam</li>
-        <li>Izveidot funkciju, kura dzēsīs atslēgu (un tās vērtību) no objekta</li>
-        <li>Izveidot funkciju, kura izdrukās visas objekta atslēgas un to vērtības</li>
+        <li>
+          Izveidot funkciju, kura pievienos jaunu atslēgu ar vērtību objektam
+        </li>
+        <li>
+          Izveidot funkciju, kura dzēsīs atslēgu (un tās vērtību) no objekta
+        </li>
+        <li>
+          Izveidot funkciju, kura izdrukās visas objekta atslēgas un to vērtības
+        </li>
       </ol>
     </div>
-    <div id="root">
-    </div>
+    <div id="root"></div>
     <div id="info">
       <h3>Noderīgas saites</h3>
       <ul>
-        <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" target="_new">MDN Objekti</a></li>
-        <li><a href="https://www.w3schools.com/js/js_objects.asp" target="_new">w3s Objekti</a></li>
+        <li>
+          <a
+            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object"
+            target="_new"
+            >MDN Objekti</a
+          >
+        </li>
+        <li>
+          <a href="https://www.w3schools.com/js/js_objects.asp" target="_new"
+            >w3s Objekti</a
+          >
+        </li>
       </ul>
     </div>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
