@@ -12,7 +12,9 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" type="text/css" href="../../styles.css" />
+    <script
+      src="myForm.js"      
+    ></script>
     <script type="text/javascript">
       let form;
       //let items = [];
@@ -38,14 +40,9 @@
         // view.addEventListener("click", viewValues);
         // view.className = "col-md-auto btn btn-primary";
         // formField.appendChild(view);
-        var form = {
-          firstName: "John",
-          lastName: "Doe",
-          id: 5566,
-          fullName: function() {
-            return this.firstName + " " + this.lastName;
-          }
-        };
+        let f = new myForm();
+        f.id = 34;
+        console.log(f.calcArea())
       }
       function addElement() {
         idx++;
