@@ -1,37 +1,124 @@
 <!DOCTYPE html>
 <html lang="lv">
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta charset="utf8">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="../../styles.css">
-    <script type="text/javascript" >
-      var masivs = [];
-    </script>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta charset="utf8" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
   </head>
+
   <body class="container">
     <div id="task">
       <h1>Manipulācijas ar masīvu</h1>
       <ol>
         <li>Izveidot funkciju, kura pievienos vērtību masīva beigās</li>
         <li>Izveidot funkciju, kura izņems vērtību no masīva beigām</li>
-        <li>Izveidot funkciju, kura izdrukās visu masīvu kā HTML DOM elementu</li>
-        <li>Izveidot funkciju, kura iestarpinās jaunu elementu masīvā pēc norādītā indeksa</li>
-        <li>Izveidot funkciju, kura izņems elementu no masīva pēc norādītā indeksa</li>
+        <li>
+          Izveidot funkciju, kura izdrukās visu masīvu kā HTML DOM elementu
+        </li>
+        <li>
+          Izveidot funkciju, kura iestarpinās jaunu elementu masīvā pēc norādītā
+          indeksa
+        </li>
+        <li>
+          Izveidot funkciju, kura izņems elementu no masīva pēc norādītā indeksa
+        </li>
       </ol>
     </div>
     <div id="root">
+      <button class="col-md-auto btn btn-success" onClick="pievienot()">
+        Pievienot
+      </button>
+      <button class="col-md-auto btn btn-success" onClick="pievienotIdx(3)">
+        Pievienot indekā
+      </button>
+      <br />
+      Vērtība
+      <input class="col-md-3 form-control" type="text" id="vertiba" value="" />
+      Indekss
+      <input class="col-md-3 form-control" type="text" id="indekss" value="" />
+      <button class="col-md-auto btn btn-danger" onClick="atnemt()">
+        Noņemt pēdējo
+      </button>
+      <button class="col-md-auto btn btn-danger" onClick="atnemtIdx()">
+        Noņemt indeksā
+      </button>
+      <div id="druka"></div>
     </div>
     <div id="info">
       <h3>Noderīgas saites</h3>
       <ul>
-        <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array" target="_new">MDN Masīvi</a></li>
-        <li><a href="https://www.w3schools.com/js/js_arrays.asp" target="_new">w3s masīvi</a></li>
-        <li><a href="https://www.w3schools.com/js/js_array_methods.asp" target="_new">w3s masīvu metodes</a></li>
+        <li>
+          <a
+            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array"
+            target="_new"
+            >MDN Masīvi</a
+          >
+        </li>
+        <li>
+          <a href="https://www.w3schools.com/js/js_arrays.asp" target="_new"
+            >w3s masīvi</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://www.w3schools.com/js/js_array_methods.asp"
+            target="_new"
+            >w3s masīvu metodes</a
+          >
+        </li>
       </ul>
     </div>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <script type="text/javascript">
+      let masivs = ["Banana", "Orange", "Apple", "Mango"];
+      druka();
+      function pievienot() {
+        if (document.getElementById("vertiba").value !== "") {
+          masivs.push(document.getElementById("vertiba").value);
+          druka();
+        }
+      }
+      function atnemt() {
+        masivs.pop();
+        druka();
+      }
+      function pievienotIdx(idx) {
+        masivs.splice(
+          document.getElementById("indekss").value,
+          0,
+          document.getElementById("vertiba").value
+        );
+        druka();
+      }
+      function atnemtIdx() {
+        masivs.splice(parseInt(document.getElementById("indekss").value), 1);
+        druka();
+      }
+      function druka() {
+        document.getElementById("druka").innerHTML = masivs;
+      }
+    </script>
   </body>
 </html>
