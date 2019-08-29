@@ -1,128 +1,57 @@
 <!DOCTYPE html>
 <html lang="lv">
-  <head>
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <meta charset="utf8" />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossorigin="anonymous"
-    />
-    <script
-      src="myForm.js"      
-    ></script>
-    <script type="text/javascript">
-      let form;
-      //let items = [];
-      let idx = 0;
-      function createForm() {
-        // idx = 0;
-        // let formField = document.getElementById("formField");
-        // while (formField.firstChild)
-        //   formField.removeChild(formField.firstChild); //nodzēš saturu
-        // //forma
-        // let form = document.createElement("form");
-        // form.id = "form1";
-        // formField.appendChild(form);
-        // //button add
-        // let add = document.createElement("button");
-        // add.innerHTML = "Pievienot elementu [+]";
-        // add.addEventListener("click", addElement);
-        // add.className = "col-md-auto btn btn-success";
-        // formField.appendChild(add);
-        // //button view
-        // let view = document.createElement("button");
-        // view.innerHTML = "Skatīt vērtības";
-        // view.addEventListener("click", viewValues);
-        // view.className = "col-md-auto btn btn-primary";
-        // formField.appendChild(view);
-        let f = new myForm();
-        f.id = 34;
-        console.log(f.calcArea())
-      }
-      function addElement() {
-        idx++;
-        let row = document.createElement("div");
-        row.id = "row_" + idx;
-        document.getElementById("form1").appendChild(row);
-        let input1 = document.createElement("input");
-        row.appendChild(input1);
-        let input2 = document.createElement("input");
-        row.appendChild(input2);
-        let button = document.createElement("button");
-        button.type = "button";
-        button.innerHTML = "Dzēst elementu [-]";
-        button.addEventListener("click", () => removeElement(row.id));
-        button.className = "col-md-auto btn btn-danger";
-        row.appendChild(button);
-        //items.push(row);
-      }
-      function removeElement(idx) {
-        document.getElementById(idx).remove();
-      }
-      function viewValues() {
-        let obj = {};
-        let idx = 0;
-        document.querySelectorAll("#form1 input").forEach(function(node) {
-          obj["field_" + idx] = node.value;
-          idx++;
-        });
-        document.getElementById("result").innerHTML = JSON.stringify(obj);
-      }
-    </script>
-  </head>
-  <body class="container">
-    <div id="task">
-      <h1>Darbības ar DOM elementiem</h1>
-      <ol>
-        <li>
-          pārveidot 4 uzdevuma risinājumu tā, lai tas izmantotu klasi ar metodēm
-          nevis vienkārši funkcijas
-        </li>
-      </ol>
-    </div>
-    <div id="root">
-      <button class="col-md-auto btn btn-success" onClick="createForm()">
-        Izveidot jaunu formu
-      </button>
-      <div id="formField"></div>
-      <div id="result"></div>
-    </div>
-    <div id="info">
-      <h3>Noderīgas saites</h3>
-      <ul>
-        <li>
-          <a
-            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object"
-            target="_new"
-            >MDN Objekti</a
-          >
-        </li>
-        <li>
-          <a href="https://www.w3schools.com/js/js_objects.asp" target="_new"
-            >w3s Objekti</a
-          >
-        </li>
-      </ul>
-    </div>
-    <script
-      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-      crossorigin="anonymous"
-    ></script>
-  </body>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta charset="utf8" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+  <script src="myForm.js"></script>
+  <script type="text/javascript">
+    function createForm() {
+      let f = new myForm();
+      f.addTo(document.getElementById("result"));
+    }    
+  </script>
+</head>
+
+<body class="container">
+  <div id="task">
+    <h1>Darbības ar DOM elementiem</h1>
+    <ol>
+      <li>
+        pārveidot 4 uzdevuma risinājumu tā, lai tas izmantotu klasi ar metodēm
+        nevis vienkārši funkcijas
+      </li>
+    </ol>
+  </div>
+  <div id="root">
+    <button class="col-md-auto btn btn-success" onClick="createForm()">
+      Izveidot jaunu formu
+    </button>
+    <div id="result"></div>
+  </div>
+  <div id="info">
+    <h3>Noderīgas saites</h3>
+    <ul>
+      <li>
+        <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object"
+          target="_new">MDN Objekti</a>
+      </li>
+      <li>
+        <a href="https://www.w3schools.com/js/js_objects.asp" target="_new">w3s Objekti</a>
+      </li>
+    </ul>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+  </script>
+</body>
+
 </html>
